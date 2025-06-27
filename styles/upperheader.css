@@ -1,29 +1,21 @@
 .upperheader {
-  background-color: #D9D9D9;
+  background-color: #f7eef2;
   min-height: 57px;
-  display: flex;
-  justify-content: center;
+}
+.upperheader_container{
+  width: 90%;
+  margin: 0 auto;
 }
 .upperheader .upperheader_contentBox {
-  height: 100%;
+  min-height: 57px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.upperheader .upperheader_contentBox .upperheader_darkModeBox {
-  width: 175px;
-  display: flex;
-  justify-content: space-between;
-}
-.upperheader .upperheader_contentBox .upperheader_darkModeBox .upperheader-darkModeBox_label {
-  min-width: 105px;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 2rem;
-  color: #424242;
-}
-.upperheader .upperheader_contentBox .upperheader_darkModeBox .upperheader-darkModeBox_toggleThemeBtn {
-  background: none;
-  border: none;
+.upperheader_logo{
+  width: 90px;
+  height: 90px;
 }
 .upperheader .upperheader_contentBox .upperheader_chooseLangBox {
   width: 100%;
@@ -36,4 +28,59 @@
   font-family: Helvetica, Arial, sans-serif;
   color: #424242;
   font-size: 1.6rem;
-}/*# sourceMappingURL=upperheader.css.map */
+}
+.upperheader_govsymb{
+  margin-right: 5px;
+}
+.upperheader-dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+}
+
+.upperheader-dropdown_toggle {
+    border: none;
+    color: #111111;
+    padding: 10px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80px;
+    text-align: left;
+    position: relative;
+}
+
+.upperheader-dropdown_toggle:after {
+    content: "▼";
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.upperheader-dropdown_menu {
+    display: none;
+    position: absolute;
+    border: none;
+    background-color: #f9f9f9;
+    width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.upperheader-dropdown_menu li a {
+    color: #111111;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.upperheader-dropdown_menu li a:hover {
+    background-color: #f1f1f1;
+}
+
+.upperheader-dropdown_menu.show {
+    display: block;
+}
