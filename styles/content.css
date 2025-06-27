@@ -205,3 +205,157 @@
   transform: rotate(45deg);
 }
 /*FAQ end*/
+/* Стили для контейнера (если отсутствуют в вашем index.css) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Стили для слайдера */
+.slider {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    height: 50vw; /* Высота пропорциональна ширине экрана */
+    max-height: 600px; /* Максимальная высота для больших экранов */
+    min-height: 300px; /* Минимальная высота для маленьких экранов */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%; /* Наследует высоту от .slider */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content {
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 80%;
+    box-sizing: border-box;
+}
+
+.slide-content h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Адаптивный размер шрифта */
+}
+
+.slide-content p {
+    margin: 0.5rem 0 0;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: clamp(8px, 2vw, 12px);
+    cursor: pointer;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    z-index: 10;
+}
+
+.prev {
+    left: 1rem;
+}
+
+.next {
+    right: 1rem;
+}
+
+.dots {
+    text-align: center;
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+}
+
+.dot {
+    display: inline-block;
+    width: clamp(8px, 1.5vw, 12px);
+    height: clamp(8px, 1.5vw, 12px);
+    margin: 0 0.5rem;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .slider {
+        height: 60vw; /* Увеличиваем пропорцию для меньших экранов */
+        min-height: 250px;
+    }
+
+    .slide-content {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    .prev, .next {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 0.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        height: 80vw; /* Еще больше для узких экранов */
+        min-height: 200px;
+    }
+
+    .slide-content {
+        padding: 0.75rem;
+    }
+
+    .slide-content h2 {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+    }
+
+    .slide-content p {
+        font-size: clamp(0.8rem, 3vw, 1.2rem);
+    }
+
+    .prev, .next {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .slider {
+        height: 400px; /* Фиксированная высота для больших экранов */
+    }
+}
