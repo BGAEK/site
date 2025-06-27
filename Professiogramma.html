@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>/* Существующие стили для контейнера (если отсутствуют) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Стили для слайдера (оставлены без изменений) */
+.slider {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    height: 50vw;
+    max-height: 600px;
+    min-height: 300px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content {
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 80%;
+    box-sizing: border-box;
+}
+
+.slide-content h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.slide-content p {
+    margin: 0.5rem 0 0;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: clamp(8px, 2vw, 12px);
+    cursor: pointer;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    z-index: 10;
+}
+
+.prev {
+    left: 1rem;
+}
+
+.next {
+    right: 1rem;
+}
+
+.dots {
+    text-align: center;
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+}
+
+.dot {
+    display: inline-block;
+    width: clamp(8px, 1.5vw, 12px);
+    height: clamp(8px, 1.5vw, 12px);
+    margin: 0 0.5rem;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+/* Медиа-запросы для слайдера */
+@media (max-width: 768px) {
+    .slider {
+        height: 60vw;
+        min-height: 250px;
+    }
+
+    .slide-content {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    .prev, .next {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 0.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        height: 80vw;
+        min-height: 200px;
+    }
+
+    .slide-content {
+        padding: 0.75rem;
+    }
+
+    .slide-content h2 {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+    }
+
+    .slide-content p {
+        font-size: clamp(0.8rem, 3vw, 1.2rem);
+    }
+
+    .prev, .next {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .slider {
+        height: 400px;
+    }
+}
+
+/* Новые стили для секции "Техник-программист" */
+.specialty {
+    background-color: #4b0082; /* Фиолетовый фон */
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.specialty_contentBox {
+    max-width: 100%;
+}
+
+.specialty_header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.specialty_logo {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+.specialty_title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0.5rem 0;
+}
+
+.specialty_subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #ddd;
+    margin: 0.5rem 0;
+}
+
+.specialty_duration {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #ffd700; /* Желтый акцент */
+}
+
+.specialty_sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.specialty_section {
+    flex: 1 1 45%;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.specialty_sectionTitle {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1rem;
+}
+
+.specialty_list {
+    list-style: none;
+    padding: 0;
+}
+
+.specialty_list li {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.specialty_list li::before {
+    content: "•";
+    color: #ffd700;
+    position: absolute;
+    left: 0;
+}
+
+.specialty_stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.specialty_stat {
+    text-align: center;
+}
+
+.specialty_statCircle {
+    width: 80px;
+    height: 80px;
+    background: #ffd700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.specialty_stat p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.specialty_footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.specialty_button {
+    background-color: #ffd700;
+    color: #4b0082;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.specialty_button:hover {
+    background-color: #e6c200;
+}
+
+.specialty_contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.specialty_qr {
+    max-width: 100px;
+}
+
+.specialty_contactInfo {
+    font-size: 1rem;
+}
+
+.specialty_contactInfo a {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+.specialty_contactInfo a:hover {
+    text-decoration: underline;
+}
+
+/* Медиа-запросы для адаптивности секции "Техник-программист" */
+@media (max-width: 768px) {
+    .specialty_sections {
+        flex-direction: column;
+    }
+
+    .specialty_section {
+        flex: 1 1 100%;
+    }
+
+    .specialty_statCircle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+
+    .specialty_button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .specialty_contacts {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .specialty_qr {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .specialty_title {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+
+    .specialty_subtitle {
+        font-size: clamp(1rem, 3.5vw, 1.3rem);
+    }
+
+    .specialty_sectionTitle {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+    }
+
+    .specialty_list li {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+
+    .specialty_statCircle {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    .specialty_button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}</style>
+</head>
+<body>
+   
+<!--
+    <div class="wrapper">
+        <div class="upperheader">
+            <div class="container">
+                <div class="upperheader_contentBox">
+                    <div class="upperheader_darkModeBox upperheader-darkModeBox">
+                        <label class="upperheader-darkModeBox_label" for="toggleThemeBtn">Dark Mode!</label>
+                        <button class="upperheader-darkModeBox_toggleThemeBtn upperheader-toggleThemeBtn" id="toggleThemeBtn">
+                            <div class="upperheader-toggleThemeBtn_icon toggleThemeIcon">
+                                <div class="toggleThemeIcon_box">
+                                    <div class="toggleThemeIcon_ellipse"></div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="upperheader_chooseLangBox upperheader-chooseLangBox">
+                        <a href="" class="upperheader-chooseLangBox_lang">BE</a>
+                        <a href="" class="upperheader-chooseLangBox_lang">RU</a>
+                        <a href="" class="upperheader-chooseLangBox_lang">EN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+-->
+<!--
+        <header class="header">
+            <div class="container">
+                <div class="header_contentBox">
+                    <a class="header_iconLink">
+                        <img class="header_icon" src="./res/icons/icon_main.png">
+                    </a>
+                    <div class="header_navBox">
+                        <nav class="header_nav header-nav">
+                            <ul class="header-nav_list">
+                                <li class="header-nav_item"><a href="" class="header-nav_link">Студенту</a></li>
+                                <li class="header-nav_item"><a href="" class="header-nav_link">Абитуриенту</a></li>
+                                <li class="header-nav_item"><a href="" class="header-nav_link">Новости</a></li>
+                                <li class="header-nav_item"><a href="" class="header-nav_link">О колледже</a></li>
+                                <li class="header-nav_item"><a href="" class="header-nav_link">ЦТ/ЦЭ</a></li>
+                                <li class="header-nav_item"><a href="" class="header-nav_link"><img src="./res/icons/icon_phone.png" alt="Контакты" class="header-nav_icon">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+-->
+<!--
+        <section class="banner">
+            <div class="container">
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400?text=Слайд+1');">
+                            <div class="slide-content">
+                                <h2>Добро пожаловать в наш колледж</h2>
+                                <p>Лучшее место для вашего образования</p>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400?text=Слайд+2');">
+                            <div class="slide-content">
+                                <h2>Современные программы обучения</h2>
+                                <p>Подготовка к будущей карьере</p>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400?text=Слайд+3');">
+                            <div class="slide-content">
+                                <h2>Активная студенческая жизнь</h2>
+                                <p>Участвуйте в наших мероприятиях</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="prev" aria-label="Предыдущий слайд">❮</button>
+                    <button class="next" aria-label="Следующий слайд">❯</button>
+                    <div class="dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+-->
+<!--
+        <section class="news">
+            <div class="container">
+                <div class="news_contentBox">
+                    <h2 class="news_title">Новости</h2>
+                    <div class="news_box news-box">
+                        <div class="news-box_item1 news-box_item"></div>
+                        <div class="news-box_item2 news-box_item"></div>
+                        <div class="news-box_item3 news-box_item"></div>
+                        <div class="news-box_item4 news-box_item"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+-->
+        <section class="specialty">
+            <div class="container">
+                <div class="specialty_contentBox">
+                    <div class="specialty_header">
+                        <img src="LogoBgaek.png" alt="Logo" class="specialty_logo">
+                        <h1 class="specialty_title">Техник-программист</h1>
+                        <p class="specialty_subtitle">Работа и сопровождение программного обеспечения</p>
+                        <p class="specialty_duration">3 года 10 месяцев</p>
+                    </div>
+                    <div class="specialty_sections">
+                        <div class="specialty_section">
+                            <h2 class="specialty_sectionTitle">Профессиональная компетенция</h2>
+                            <ul class="specialty_list">
+                                <li>Техническая поддержка и установка программного обеспечения.</li>
+                                <li>Разработка и тестирование программного кода.</li>
+                                <li>Техническое обслуживание и поддержка пользователей.</li>
+                                <li>Создание и настройка баз данных.</li>
+                            </ul>
+                        </div>
+                        <div class="specialty_section">
+                            <h2 class="specialty_sectionTitle">Обязанности</h2>
+                            <ul class="specialty_list">
+                                <li>Разработка программного обеспечения.</li>
+                                <li>Тестирование и отладка программ.</li>
+                                <li>Обеспечение безопасности данных.</li>
+                                <li>Консультация пользователей.</li>
+                            </ul>
+                        </div>
+                        <div class="specialty_section">
+                            <h2 class="specialty_sectionTitle">Уникальность профессии</h2>
+                            <div class="specialty_stats">
+                                <div class="specialty_stat">
+                                    <div class="specialty_statCircle">90%</div>
+                                    <p>C++, JavaScript, HTML</p>
+                                </div>
+                                <div class="specialty_stat">
+                                    <div class="specialty_statCircle">85%</div>
+                                    <p>Python, Java, Visual Basic .NET</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialty_section">
+                            <h2 class="specialty_sectionTitle">Возможности обучения</h2>
+                            <p>Обучение проводится в современных лабораториях с использованием передовых технологий. Выпускники получают перспективы работы в IT-компаниях и возможность дальнейшего обучения.</p>
+                        </div>
+                        <div class="specialty_section">
+                            <h2 class="specialty_sectionTitle">Требования</h2>
+                            <p>Базовое общее среднее образование, успешное прохождение вступительных испытаний.</p>
+                        </div>
+                    </div>
+                    <div class="specialty_footer">
+                        <button class="specialty_button">На главную</button>
+                        <div class="specialty_contacts">
+                            <img src="./res/icons/qr-code.png" alt="QR Code" class="specialty_qr">
+                            <div class="specialty_contactInfo">
+                                <p><strong>Телефон:</strong> 8(029) 71-71-19, 8(029) 76-41-41</p>
+                                <p><strong>Сайт:</strong> <a href="https://bgaek.by">www.bgaek.by</a></p>
+                                <p><strong>Адрес:</strong> ул. Интернациональная, 46</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelector('.slides');
+            const slideElements = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const nextButton = document.querySelector('.next');
+            const prevButton = document.querySelector('.prev');
+
+            if (!slides || !slideElements.length || !dots.length || !nextButton || !prevButton) {
+                console.error('Slider elements not found:', {
+                    slides: !!slides,
+                    slideElements: slideElements.length,
+                    dots: dots.length,
+                    nextButton: !!nextButton,
+                    prevButton: !!prevButton
+                });
+                return;
+            }
+
+            let currentSlide = 0;
+            const totalSlides = slideElements.length;
+
+            function showSlide(index) {
+                if (index >= totalSlides) currentSlide = 0;
+                else if (index < 0) currentSlide = totalSlides - 1;
+                else currentSlide = index;
+
+                slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentSlide);
+                });
+            }
+
+            nextButton.addEventListener('click', () => {
+                showSlide(currentSlide + 1);
+            });
+
+            prevButton.addEventListener('click', () => {
+                showSlide(currentSlide - 1);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
