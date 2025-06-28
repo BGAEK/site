@@ -26,7 +26,40 @@
     </div>
   </div>
 </section>
-
+<!-- Меню-слайдер -->
+<section class="banner">
+  <div class="container">
+    <div class="slider">
+      <div class="slides">
+        <div class="slide" style="background-image: url('');">
+          <div class="slide-content">
+            <h2>Добро пожаловать в наш колледж</h2>
+            <p>Лучшее место для вашего образования</p>
+          </div>
+        </div>
+        <div class="slide" style="background-image: url('');">
+          <div class="slide-content">
+            <h2>Современные программы обучения</h2>
+            <p>Подготовка к будущей карьере</p>
+          </div>
+        </div>
+        <div class="slide" style="background-image: url('');">
+          <div class="slide-content">
+            <h2>Активная студенческая жизнь</h2>
+            <p>Участвуйте в наших мероприятиях</p>
+          </div>
+        </div>
+      </div>
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- FAQ БЛОК -->
 <section class="faq">
   <div class="container">
@@ -71,43 +104,7 @@
   </div>
   <script src="./scripts/faqAnim.js"></script>
 </section>
-
-<!-- Меню-слайдер -->
-<section class="banner">
-  <div class="container">
-    <div class="slider">
-      <div class="slides">
-        <div class="slide" style="background-image: url('');">
-          <div class="slide-content">
-            <h2>Добро пожаловать в наш колледж</h2>
-            <p>Лучшее место для вашего образования</p>
-          </div>
-        </div>
-        <div class="slide" style="background-image: url('');">
-          <div class="slide-content">
-            <h2>Современные программы обучения</h2>
-            <p>Подготовка к будущей карьере</p>
-          </div>
-        </div>
-        <div class="slide" style="background-image: url('');">
-          <div class="slide-content">
-            <h2>Активная студенческая жизнь</h2>
-            <p>Участвуйте в наших мероприятиях</p>
-          </div>
-        </div>
-      </div>
-      <button class="prev">❮</button>
-      <button class="next">❯</button>
-      <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-Блок новостей и информации о колледже
+<!-- Блок новостей и информации о колледже -->
 <section class="news">
   <div class="container">
     <div class="news-wrapper">
@@ -170,117 +167,8 @@
   </div>
 </section>
 <script src="./scripts/newsAnim.js"></script>
-<link rel="stylesheet" href="./styles/content.css">
-<!--Блок перехода на специальности-->
-<section class="college-specialties">
-  <div class="container">
-    <div class="college-specialties__wrapper">
-      <div class="college-specialties__header">
-        <h2 class="college-specialties__title">
-          БОБРУЙСКИЙ ГОСУДАРСТВЕННЫЙ АГРАРНО-ЭКОНОМИЧЕСКИЙ КОЛЛЕДЖ
-        </h2>
-        <p class="college-specialties__subtitle">
-          более 60 лет выпускаем лучших специалистов
-        </p>
-      </div>
-      <div class="college-specialties__cards">
-        <a href="/architecture" class="college-specialties__card college-specialties__card--blue">
-          Архитектура и строительство
-        </a>
-        <a href="/business" class="college-specialties__card college-specialties__card--image"
-          style="background-image: url('./res/images/specialty-business.jpg');">
-          <span class="college-specialties__card-text">Бизнес, управление и право</span>
-        </a>
-        <a href="/ict" class="college-specialties__card college-specialties__card--blue">
-          Информационно-коммуникативные технологии
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ БЛОК -->
-<section class="faq">
-  <div class="container">
-    <div class="faq-wrapper">
-      <div class="faq-left">
-        <h1><span>ОТВЕТЫ</span> НА ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h1>
-        <p>Не нашли ответа? <br> Можете написать нам</p>
-      </div>
-      <div class="faq-right">
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Какие документы необходимы для поступления?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            Вам необходимо подготовить документы:<br>
-            - паспорт<br>
-            - аттестат<br>
-            - фотографии
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Как узнать медицинский допуск к выбору профессии?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            Медицинский допуск можно получить в медучреждении после обследования.
-          </div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            Как узнать медицинский допуск к выбору профессии?
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            Медицинский допуск можно получить в медучреждении после обследования.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="./scripts/faqAnim.js"></script>
-</section>
-
-<!-- Меню-слайдер -->
-<section class="banner">
-  <div class="container">
-    <div class="slider">
-      <div class="slides">
-        <div class="slide" style="background-image: url('');">
-          <div class="slide-content">
-            <h2>Добро пожаловать в наш колледж</h2>
-            <p>Лучшее место для вашего образования</p>
-          </div>
-        </div>
-        <div class="slide" style="background-image: url('');">
-          <div class="slide-content">
-            <h2>Современные программы обучения</h2>
-            <p>Подготовка к будущей карьере</p>
-          </div>
-        </div>
-        <div class="slide" style="background-image: url('');">
-          <div class="slide-content">
-            <h2>Активная студенческая жизнь</h2>
-            <p>Участвуйте в наших мероприятиях</p>
-          </div>
-        </div>
-      </div>
-      <button class="prev">❮</button>
-      <button class="next">❯</button>
-      <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Блок новостей -->
-<section class="news">
+<!-- <section class="news">
   <div class="container">
     <div class="news-wrapper">
       <h2>Новости и события</h2>
@@ -324,7 +212,7 @@
     </div>
   </div>
 </section>
-<script src="./scripts/newsAnim.js"></script>
+<script src="./scripts/newsAnim.js"></script> -->
 
 
 
