@@ -170,21 +170,23 @@
 }
 
 .faq-toggle {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
   border-radius: 50%;
   background-color: #906;
   color: #fff;
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
+  /* aspect-ratio: 1/1;  // можно добавить, если поддерживается */
 }
 
 .faq-item.open .faq-toggle {
-  transform: rotate(45deg); /* + превращается в x */
+  transform: rotate(45deg);
 }
 
 .faq-answer {
@@ -203,6 +205,46 @@
 
 .faq-item.open .faq-toggle {
   transform: rotate(45deg);
+}
+/* ===== Адаптивность ===== */
+@media (max-width: 500px) {
+  .faq-wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .faq-left,
+  .faq-right {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+  }
+
+  .faq-left {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .faq-left h1 {
+    font-size: 22px;
+  }
+
+  .faq-left p {
+    font-size: 16px;
+  }
+
+  .faq-question {
+    font-size: 18px;
+  }
+
+  .faq-answer {
+    font-size: 16px;
+  }
+
+   .faq-toggle {
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+  }
 }
 /*FAQ end*/
 /* Стили для контейнера (если отсутствуют в вашем index.css) */
